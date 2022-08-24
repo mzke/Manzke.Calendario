@@ -3,7 +3,7 @@
 
 Exemplos:
 
-´´´cs
+```cs
 Calendario.TempoDecorrido(DateTime.Now);
 // menos de n minutos atrás
 
@@ -15,5 +15,5 @@ Calendario.DiaDaSemana(new DateTime(2022, 1, 5)).Nome;
 
 Calendario.PrimeiroDia(new DateTime(2022, 11, 19))
 // 01/11/2022
-´´´
+```
 
