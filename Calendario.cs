@@ -12,20 +12,29 @@ namespace Manzke.Calendario
         private List<DiaDaSemana> diasDaSemana;
         private List<Mes> Meses { get;set; }
 
-        
-
-        
         public Calendario()
         {
             diasDaSemana = DiasDaSemana();
-
             Meses = new List<Mes>();
             for (int m = 1; m <= 12; m++)
             {
                 DateTime d = new DateTime(2000, m, 1);
                 Meses.Add(new Mes(m.ToString(), d.ToString("MMMM"), d.ToString("MMM")));
             }
+        }
 
+        public Calendario(DateTime data) : this()
+        {
+            this.Data = data;
+        }
+
+        /// <summary>
+        /// Retorna uma frase com o tempo decorrido em minutos, horas ou dias.
+        /// </summary>
+        /// <returns></returns>
+        public string TempoDecorrido()
+        {
+            return TempoDecorrido(Data, false);
         }
 
         public static string TempoDecorrido(DateTime data)
@@ -102,23 +111,33 @@ namespace Manzke.Calendario
 
         public static List<DiaDaSemana> DiasDaSemana()
         {
-            var diasDaSemana = new List<DiaDaSemana>();
-            diasDaSemana.Add(new DiaDaSemana(0, "Domingo", "DOM"));
-            diasDaSemana.Add(new DiaDaSemana(1, "Segunda-Feira", "SEG"));
-            diasDaSemana.Add(new DiaDaSemana(2, "Terça-Feira", "TER"));
-            diasDaSemana.Add(new DiaDaSemana(3, "Quarta-Feira", "QUA"));
-            diasDaSemana.Add(new DiaDaSemana(4, "Quinta-Feira", "QUI"));
-            diasDaSemana.Add(new DiaDaSemana(5, "Sexta-Feira", "SEX"));
-            diasDaSemana.Add(new DiaDaSemana(6, "Sábado", "SAB"));
-            return diasDaSemana;
+            var result = new List<DiaDaSemana>();
+            result.Add(new DiaDaSemana(0, "Domingo", "DOM"));
+            result.Add(new DiaDaSemana(1, "Segunda-Feira", "SEG"));
+            result.Add(new DiaDaSemana(2, "Terça-Feira", "TER"));
+            result.Add(new DiaDaSemana(3, "Quarta-Feira", "QUA"));
+            result.Add(new DiaDaSemana(4, "Quinta-Feira", "QUI"));
+            result.Add(new DiaDaSemana(5, "Sexta-Feira", "SEX"));
+            result.Add(new DiaDaSemana(6, "Sábado", "SAB"));
+            return result;
         }
 
-
+        /// <summary>
+        /// Retorna um objeto DiaDaSemana para indice. (Domingo = 0).
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public DiaDaSemana DiaDaSemana(int id)
         {
             return diasDaSemana.First(D => D.ID == id);
         }
 
+        /// <summary>
+        /// Retorna uma lista com os dias do mês.
+        /// </summary>
+        /// <param name="mes"></param>
+        /// <param name="ano"></param>
+        /// <returns></returns>
         public List<int> DiasDoMes(int mes, int ano)
         {
             if (ano == 0)
@@ -131,6 +150,14 @@ namespace Manzke.Calendario
             return dias;
         }
 
+        /// <summary>
+        /// Retorna a data ajusta para o último dia do mês anterior.
+        /// </summary>
+        /// <returns></returns>
+        public  DateTime MesPassado()
+        {
+            return MesPassado(Data);
+        }
         public static DateTime MesPassado(DateTime data)
         {
             DateTime mesPassado = new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month)).AddMonths(-1);
