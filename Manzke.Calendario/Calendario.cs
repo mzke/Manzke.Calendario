@@ -36,6 +36,10 @@ namespace Manzke.Calendario
         {
             return TempoDecorrido(Data, false);
         }
+        public string TempoDecorrido(bool sigla)
+        {
+            return TempoDecorrido(Data, sigla);
+        }
 
         public static string TempoDecorrido(DateTime data)
         {
@@ -174,6 +178,10 @@ namespace Manzke.Calendario
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        public DateTime PrimeiroDia()
+        {
+            return PrimeiroDia(Data);
+        }
         public static DateTime PrimeiroDia(DateTime? data)
         {
             if (data.HasValue)
@@ -255,7 +263,7 @@ namespace Manzke.Calendario
 
         public static int Idade(DateTime DataDeNascimento)
         {
-            DateTime now = DateTime.Today; // today is fine, don't need the timestamp from now
+            DateTime now = DateTime.Today; 
             int years = now.Year - DataDeNascimento.Year;
             if (now.Month < DataDeNascimento.Month || (now.Month == DataDeNascimento.Month && now.Day < DataDeNascimento.Day))
                 --years;

@@ -11,6 +11,8 @@
     <PackageIcon>nuget.png</PackageIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Adicionado exemplos no Readme.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
