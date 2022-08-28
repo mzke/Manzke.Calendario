@@ -16,7 +16,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\OneDrive - ESCOBLU\Imagens\nuget.png">
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -24,6 +28,10 @@
 
   <ItemGroup>
     <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="nuget.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
