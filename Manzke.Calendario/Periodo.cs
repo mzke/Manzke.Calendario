@@ -59,7 +59,6 @@ namespace Manzke.Calendario
             {
                 if (Inicio.HasValue)
                 {
-                    //   result += " até ";
                     if (Fim.Value.Year > Inicio.Value.Year)
                     {
                         result += " até " + Fim.Value.Year;
