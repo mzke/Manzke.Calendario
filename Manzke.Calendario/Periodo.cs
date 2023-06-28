@@ -40,7 +40,7 @@ namespace Manzke.Calendario
 
         private string FormatMeses()
         {
-            if (Inicio.Value.Month == Fim.Value.Month && Inicio.Value.Year == Fim.Value.Year)
+            if (Inicio != null && Fim != null && Inicio.Value.Month == Fim.Value.Month && Inicio.Value.Year == Fim.Value.Year)
                 return $"{Inicio.Value.Month.ToString("D2")}/{Inicio.Value.Year}";
             else
                 return $"{Inicio.Value.Month.ToString("D2")}/{Inicio.Value.Year} até {Fim.Value.Month}/{Fim.Value.Year}";
